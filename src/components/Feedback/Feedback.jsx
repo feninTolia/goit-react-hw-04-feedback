@@ -11,22 +11,17 @@ const Feedback = () => {
   const handleFeedbackBtnClick = evt => {
     const { name } = evt.target;
 
-    switch (name) {
-      case 'goodBtn':
-        setGood(prevGood => prevGood + 1);
-        break;
-
-      case 'neutralBtn':
-        setNeutral(prevNeutral => prevNeutral + 1);
-        break;
-
-      case 'badBtn':
-        setBad(prevBad => prevBad + 1);
-        break;
-
-      default:
-        alert('Oooops! Sorry something went wrong =(');
+    if (name === 'goodBtn') {
+      return setGood(prevGood => prevGood + 1);
     }
+    if (name === 'badBtn') {
+      return setBad(prevBad => prevBad + 1);
+    }
+    if (name === 'neutralBtn') {
+      return setNeutral(prevNeutral => prevNeutral + 1);
+    }
+
+    alert('Oooops! Sorry something went wrong =(');
   };
 
   const countTotalFeedback = () => {
